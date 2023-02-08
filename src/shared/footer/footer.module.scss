@@ -1,0 +1,9 @@
+.footer {
+  @apply relative box-border flex h-[72px] w-[1280px] flex-col items-center justify-center gap-[18px] border-t border-gray-e6 bg-white py-5 px-10;
+  .title {
+    @apply h-[26px] w-[198px] text-base font-normal text-gray-83;
+    strong {
+      @apply cursor-pointer text-black;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+.button {
+  @apply flex h-[50px] w-[340px] flex-row items-center justify-center gap-[10px] rounded-[5px] bg-gray-d5 py-3 px-[33px] text-gray-f3;
+}
+.active {
+  @apply bg-black text-white;
+}

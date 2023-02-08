@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply flex flex-col items-center justify-center;
+}
+.main {
+  @apply h-[684px] w-[1280px] bg-gray-f3;
+}
