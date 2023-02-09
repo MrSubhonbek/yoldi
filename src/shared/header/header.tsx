@@ -3,6 +3,7 @@ import { FC } from "react";
 import Logo from "./logo";
 
 import styles from "./header.module.scss";
+import Link from "next/link";
 
 interface IHeader {
   login?: boolean;
@@ -22,7 +23,9 @@ const Header: FC<IHeader> = ({ login, name }) => {
           <div>{name?.split("")[0].toUpperCase()}</div>
         </div>
       ) : (
-        <button className={styles.login}>Войти</button>
+        <Link href={"login"} className={styles.login}>
+          Войти
+        </Link>
       )}
     </header>
   );

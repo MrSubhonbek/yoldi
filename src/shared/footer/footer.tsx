@@ -1,12 +1,25 @@
+import Link from "next/link";
 import { FC } from "react";
 
 import styles from "./footer.module.scss";
 
-const Footer: FC = () => {
+interface IFooter {
+  register?: boolean;
+}
+
+const Footer: FC<IFooter> = ({ register }) => {
   return (
     <footer className={styles.footer}>
       <h3 className={styles.title}>
-        Уже есть аккаунт? <strong>Войти</strong>
+        {register ? (
+          <>
+            Еще нет аккаунта? <Link href={"register"}>Зарегистрироваться</Link>
+          </>
+        ) : (
+          <>
+            Уже есть аккаунт? <Link href={"login"}>Войти</Link>
+          </>
+        )}
       </h3>
     </footer>
   );

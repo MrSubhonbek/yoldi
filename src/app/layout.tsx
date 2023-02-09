@@ -1,6 +1,5 @@
 import { Inter } from "@next/font/google";
 
-import Footer from "@/shared/footer/footer";
 import Header from "@/shared/header/header";
 
 import "./globals.scss";
@@ -21,7 +20,6 @@ export default function RootLayout({
       <body>
         <Header />
         <main className="main">{children}</main>
-        <Footer />
       </body>
     </html>
   );
