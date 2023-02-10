@@ -1,9 +1,9 @@
 import { FC } from "react";
+import Link from "next/link";
 
 import Logo from "./logo";
 
 import styles from "./header.module.scss";
-import Link from "next/link";
 
 interface IHeader {
   login?: boolean;
@@ -13,10 +13,12 @@ interface IHeader {
 const Header: FC<IHeader> = ({ login, name }) => {
   return (
     <header className={styles.header}>
-      <Logo />
-      <p className={styles.title}>
-        Разрабатываем и запускаем сложные веб проекты
-      </p>
+      <div className={styles.wrapper}>
+        <Logo />
+        <p className={styles.title}>
+          Разрабатываем и запускаем сложные веб проекты
+        </p>
+      </div>
       {login ? (
         <div className={styles.user}>
           <span>{name}</span>

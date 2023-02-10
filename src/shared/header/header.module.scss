@@ -1,16 +1,20 @@
 .header {
-  @apply relative box-border flex h-[80px] w-[1280px] items-center border-b border-gray-e6 bg-white;
-  svg {
-    @apply ml-5;
+  @apply relative box-border flex h-[80px] w-full max-w-[1280px] items-center justify-between border-b border-gray-e6 bg-white pr-[29.5px];
+  .wrapper {
+    @apply flex;
+    svg {
+      @apply mx-5;
+    }
+    .title {
+      @apply h-[52px] w-[225px] text-base font-normal text-black max-sm:hidden;
+    }
   }
-  .title {
-    @apply absolute left-[120px] h-[52px] w-[225px] text-base font-normal text-black;
-  }
+
   .login {
-    @apply absolute right-[29.5px] box-border flex h-10 w-[114px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-d5 bg-white py-[7px] px-[33px];
+    @apply box-border flex h-10 w-[114px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-d5 bg-white py-[7px] px-[33px];
   }
   .user {
-    @apply absolute right-[29.5px] flex h-[50px] w-[155px] flex-row items-center gap-5 p-0;
+    @apply flex h-[50px] w-[155px] flex-row items-center gap-5 p-0;
 
     span {
       @apply flex h-[26px] w-[85px] items-center;

@@ -1,7 +1,7 @@
 .footer {
-  @apply relative box-border flex h-[72px] w-[1280px] flex-col items-center justify-center gap-[18px] border-t border-gray-e6 bg-white py-5 px-10;
+  @apply box-border flex h-[72px] w-full max-w-[1280px] flex-col  items-center justify-center gap-[18px] border-t border-gray-e6 bg-white py-5 px-10  max-sm:absolute max-sm:bottom-0;
   .title {
-    @apply h-[26px]  text-base font-normal text-gray-83;
+    @apply h-[26px] min-w-[317px] text-center text-base font-normal text-gray-83;
     a {
       @apply cursor-pointer font-bold text-black;
     }

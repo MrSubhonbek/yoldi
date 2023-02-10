@@ -1,9 +1,16 @@
-.container {
-  @apply flex h-full w-full items-center justify-center;
-  .register {
-    @apply box-border flex h-[424px] w-[400px] flex-col items-center justify-center gap-[25px] rounded-[5px] border border-gray-e6 bg-white p-[30px];
-    .title {
-      @apply h-[84px] w-[340] text-3xl font-medium text-black;
+.main {
+  @apply h-[684px] w-full max-w-[1280px] bg-gray-f3 max-sm:h-[424px] max-sm:min-h-[424px];
+
+  .container {
+    @apply flex h-full w-full items-center justify-center;
+    .register {
+      @apply box-border flex min-h-[424px] w-[400px] flex-col items-center justify-center gap-[25px] rounded-[5px] border border-gray-e6 bg-white p-[30px] max-sm:w-full;
+      .title {
+        @apply h-[84px] w-[330] text-3xl font-medium text-black max-sm:px-[15px];
+      }
+      h2 {
+        @apply text-red-400;
+      }
     }
   }
 }

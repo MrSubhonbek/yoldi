@@ -1,4 +1,5 @@
 import React, { FC, MouseEvent } from "react";
+import { useRouter } from "next/router";
 import clsx from "clsx";
 
 import styles from "./button.module.scss";
@@ -6,7 +7,7 @@ import styles from "./button.module.scss";
 interface IButton {
   active?: boolean;
   text: string;
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick: (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
 }
 
 const Button: FC<IButton> = ({ text, active, onClick }) => (

@@ -13,11 +13,11 @@ const Footer: FC<IFooter> = ({ register }) => {
       <h3 className={styles.title}>
         {register ? (
           <>
-            Еще нет аккаунта? <Link href={"register"}>Зарегистрироваться</Link>
+            Уже есть аккаунт? <Link href={"login"}>Войти</Link>
           </>
         ) : (
           <>
-            Уже есть аккаунт? <Link href={"login"}>Войти</Link>
+            Еще нет аккаунта? <Link href={"register"}>Зарегистрироваться</Link>
           </>
         )}
       </h3>

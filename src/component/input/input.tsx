@@ -6,7 +6,6 @@ import styles from "./input.module.scss";
 interface IInput {
   type: string;
   placeholder: string;
-  error?: boolean;
   value: string;
   setValue: (value: string) => void;
   icon: ReactNode;
@@ -18,22 +17,18 @@ const Input: FC<IInput> = ({
   icon,
   placeholder,
   eye,
-  error,
   setValue,
   value,
 }) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setValue(e.target.value);
   return (
-    <div
-      className={
-        error ? clsx(styles.error, styles.container) : styles.container
-      }
-    >
+    <div className={styles.container}>
       {icon}
       <input
         type={type}
         value={value}
+        required
         placeholder={placeholder}
         onChange={handleChange}
       />
