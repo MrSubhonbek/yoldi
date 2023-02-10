@@ -40,11 +40,20 @@ const Login: FC = () => {
         body: JSON.stringify({ password, email }),
       })
     );
-    if (!cache.get(routes.register)?.data.message) {
-      router.push(`/account/owner/${email.replace("@", "--")}`);
-    }
-    setError(cache.get(routes.login)?.data.message);
-    console.log(cache.get(routes.login)?.data.value);
+    if (cache.get(routes.login)?.data.value) {
+      mutate(
+        routes.profile,
+        fetcher(routes.profile, {
+          method: "GET",
+          headers: {
+            "X-API-KEY": `${cache.get(routes.login)?.data.value}`,
+            accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+      );
+      router.push(`/account/owner/${cache.get(routes.profile)?.data.slug}`);
+    } else setError(cache.get(routes.login)?.data.message);
   };
 
   return (

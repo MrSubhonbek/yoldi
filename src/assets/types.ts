@@ -1,4 +1,4 @@
-export interface IUser {
+interface IUser {
   name: string;
   email: string;
   slug: string;
@@ -12,3 +12,4 @@ interface IImg {
   width: string;
   height: string;
 }
+export default IUser;

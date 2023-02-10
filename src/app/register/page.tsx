@@ -42,10 +42,20 @@ const Register: FC = () => {
         body: JSON.stringify({ password, email, name }),
       })
     );
-    if (!cache.get(routes.register)?.data.message) {
-      router.push(`/account/owner/${email.replace("@", "--")}`);
-    }
-    setError(cache.get(routes.register)?.data.message);
+    if (cache.get(routes.register)?.data.value) {
+      mutate(
+        routes.profile,
+        fetcher(routes.profile, {
+          method: "GET",
+          headers: {
+            "X-API-KEY": `${cache.get(routes.register)?.data.value}`,
+            accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        })
+      );
+      router.push(`/account/owner/${cache.get(routes.profile)?.data.slug}`);
+    } else setError(cache.get(routes.register)?.data.message);
   };
 
   return (

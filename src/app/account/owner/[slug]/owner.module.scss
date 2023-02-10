@@ -15,7 +15,7 @@
       @apply h-[42px] w-[161px] text-3xl font-medium text-black;
     }
     .edit {
-      @apply flex h-10 w-[200px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-d5 bg-white px-[22px] py-[7px];
+      @apply relative z-10 flex h-10 w-[200px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-d5 bg-white px-[22px] py-[7px];
       svg {
         @apply h-[25px] w-[25px];
       }

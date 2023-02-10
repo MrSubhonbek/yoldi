@@ -1,9 +1,9 @@
 .container {
-  @apply box-border flex h-[50px] w-[330px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-83 bg-white py-3 px-5;
+  @apply box-border flex h-[50px] w-full flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-83 bg-white py-3 px-5;
   svg {
     @apply h-[25px] w-[25px];
   }
   input {
-    @apply h-[26px] w-[255px] text-base font-normal text-gray-83 outline-none;
+    @apply h-[26px] w-full text-base font-normal text-gray-83 outline-none;
   }
 }
