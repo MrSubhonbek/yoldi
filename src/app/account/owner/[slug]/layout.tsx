@@ -1,17 +1,24 @@
-import { FC } from "react";
+"use client";
+import useSWR from "swr";
 
 import Header from "@/shared/header/header";
 
-interface IOwnerLayout {
-  children: React.ReactNode;
-}
+import routes from "@/assets/api/routes";
+import fetcher from "@/assets/api/fetcher";
+import { IUser } from "@/assets/types";
 
-const OwnerLayout: FC<IOwnerLayout> = ({ children }) => {
+export default function Page({
+  children,
+  params,
+}: {
+  params: { slug: string };
+  children: React.ReactNode;
+}) {
+  const { data: user } = useSWR<IUser>(`${routes.user}${params.slug}`, fetcher);
   return (
     <section>
-      <Header login />
+      <Header login name={user?.name} />
       {children}
     </section>
   );
-};
-export default OwnerLayout;
+}

@@ -2,7 +2,7 @@
   @apply h-[284px] bg-gray-f3;
 }
 .main {
-  @apply flex w-full max-w-[1280px] flex-col bg-white px-60;
+  @apply flex w-full max-w-[1280px] flex-col bg-white px-60 max-lg:px-[30px] max-sm:px-[30px];
   .avatar {
     @apply relative -top-[50px] box-border h-[100px] w-[100px] rounded-full border border-gray-e6 bg-gray-f3;
     p {
@@ -10,7 +10,7 @@
     }
   }
   .head {
-    @apply flex h-[42px] max-w-[800px] flex-row items-center justify-between p-0;
+    @apply flex h-[42px] max-w-[800px] flex-row items-center justify-between p-0 max-sm:flex-col max-sm:items-start max-sm:gap-[46px];
     .name {
       @apply h-[42px] w-[161px] text-3xl font-medium text-black;
     }
@@ -25,15 +25,15 @@
     }
   }
   .description {
-    @apply flex  max-w-[600px] flex-col items-start gap-[60px] p-0;
+    @apply flex  max-w-[600px] flex-col items-start gap-[60px] p-0 max-sm:w-[335px] max-[320px]:w-[260px];
     .email {
-      @apply h-[26px] w-[600px] text-base font-normal text-gray-83;
+      @apply h-[26px] w-[600px] text-base font-normal text-gray-83 max-sm:w-[335px] max-[320px]:w-[260px];
     }
     .text {
-      @apply h-[130px] w-[600px] text-base font-normal text-black;
+      @apply w-[600px] text-base font-normal text-black max-sm:mt-[30px] max-sm:mb-[60px] max-sm:w-[335px] max-[320px]:w-[260px];
     }
     .button {
-      @apply flex h-10 w-[130px] flex-row items-center justify-center rounded-[5px] border border-gray-d5 bg-white py-[7px] px-[22px];
+      @apply mb-10 flex h-10 w-[130px] flex-row items-center justify-center rounded-[5px] border border-gray-d5 bg-white py-[7px] px-[22px];
     }
   }
 }
