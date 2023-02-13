@@ -14,15 +14,6 @@
     .name {
       @apply h-[42px] w-[161px] text-3xl font-medium text-black;
     }
-    .edit {
-      @apply relative z-10 flex h-10 w-[200px] flex-row items-center justify-center gap-[10px] rounded-[5px] border border-gray-d5 bg-white px-[22px] py-[7px];
-      svg {
-        @apply h-[25px] w-[25px];
-      }
-      p {
-        @apply h-[26px] w-[121px] text-base font-medium;
-      }
-    }
   }
   .description {
     @apply flex  max-w-[600px] flex-col items-start gap-[60px] p-0 max-sm:w-[335px] max-[320px]:w-[260px];
@@ -31,9 +22,6 @@
     }
     .text {
       @apply w-[600px] text-base font-normal text-black max-sm:mt-[30px] max-sm:mb-[60px] max-sm:w-[335px] max-[320px]:w-[260px];
-    }
-    .button {
-      @apply mb-10 flex h-10 w-[130px] flex-row items-center justify-center rounded-[5px] border border-gray-d5 bg-white py-[7px] px-[22px];
     }
   }
 }

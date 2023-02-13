@@ -1,16 +1,20 @@
+"use client";
 import { FC } from "react";
 
 import Footer from "@/shared/footer/footer";
 import Header from "@/shared/header/header";
+import { useAppSelector } from "@/store/hooks";
 
 interface ILoginLayout {
   children: React.ReactNode;
 }
 
 const LoginLayout: FC<ILoginLayout> = ({ children }) => {
+  const { name, value } = useAppSelector((state) => state.apiKey);
+
   return (
     <>
-      <Header />
+      <Header login={!!value} name={name} />
       {children}
       <Footer />
     </>

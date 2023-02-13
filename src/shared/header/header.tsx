@@ -1,6 +1,8 @@
+"use client";
 import { FC } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
+
+import { useAppSelector } from "@/store/hooks";
 
 import Logo from "./logo";
 
@@ -12,19 +14,23 @@ interface IHeader {
 }
 
 const Header: FC<IHeader> = ({ login, name }) => {
+  const { slug } = useAppSelector((state) => state.apiKey);
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
-        <Logo />
+        <Link href={"contacts"}>
+          <Logo />
+        </Link>
         <p className={styles.title}>
           Разрабатываем и запускаем сложные веб проекты
         </p>
       </div>
       {login ? (
-        <div className={styles.user}>
+        <Link href={`/account/owner/${slug}`} className={styles.user}>
           <span>{name}</span>
           <div>{name?.split("")[0].toUpperCase()}</div>
-        </div>
+        </Link>
       ) : (
         <Link href={"login"} className={styles.login}>
           Войти

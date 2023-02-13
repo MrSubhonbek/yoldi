@@ -29,12 +29,11 @@ const Login: FC = () => {
   const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const value = await getKeyLogin({ email, password }, setError);
-    console.log(value);
-    console.log(error);
     if (value) {
-      dispatch(setKey(value));
-      const { slug } = await getProfile(routes.profile, value);
-      router.push(`/account/owner/${slug}`);
+      const { name, slug } = await getProfile(routes.profile, value);
+      dispatch(setKey({ name, value, slug }));
+      router.push(`/contacts`);
+      //router.push(`/account/owner/${slug}`);
     }
   };
 

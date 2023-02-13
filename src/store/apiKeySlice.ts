@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-export interface apiKey {
+export interface IApiKey {
   value: string;
+  name: string;
+  slug: string;
 }
 
-const initialState: apiKey = {
+const initialState: IApiKey = {
   value: "",
+  name: "",
+  slug: "",
 };
 
 export const apiKeySlice = createSlice({
@@ -14,11 +18,12 @@ export const apiKeySlice = createSlice({
   initialState,
   reducers: {
     setKey: (state, action) => {
-      state.value = action.payload;
+      state.value = action.payload.value;
+      state.name = action.payload.name;
+      state.slug = action.payload.slug;
     },
   },
 });
-export const selectCount = (state: RootState) => state.apiKey.value;
 
 export const { setKey } = apiKeySlice.actions;
 

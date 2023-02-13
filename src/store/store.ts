@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import apiKeyReducer from "./apiKeySlice";
+import otherUserReducer from "./guestSlices";
 
 export const store = configureStore({
   reducer: {
     apiKey: apiKeyReducer,
+    guest: otherUserReducer,
   },
 });
 

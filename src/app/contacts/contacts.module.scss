@@ -1,7 +1,7 @@
 .list {
   @apply flex h-[490px] w-full max-w-[800px] flex-col items-start gap-[10px] overflow-y-auto p-0 max-sm:w-[335px];
   .users {
-    @apply flex h-[50px] w-full max-w-[800px] flex-row items-center justify-between gap-[20px] border-t border-gray-e6  pt-[10px] max-sm:w-[335px] max-sm:justify-start;
+    @apply flex h-[50px] w-full max-w-[800px] cursor-pointer flex-row items-center justify-between gap-[20px] border-t border-gray-e6  pt-[10px] max-sm:w-[335px] max-sm:justify-start;
     .wrapper {
       @apply flex w-full flex-row items-center justify-between gap-[20px] max-sm:flex-col max-sm:items-start max-sm:gap-0;
     }
