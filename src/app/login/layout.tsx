@@ -10,7 +10,6 @@ interface ILoginLayout {
 const LoginLayout: FC<ILoginLayout> = ({ children }) => {
   return (
     <section>
-      <Header />
       {children}
       <Footer />
     </section>

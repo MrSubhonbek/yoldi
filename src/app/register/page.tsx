@@ -1,6 +1,5 @@
 "use client";
 import { FC, MouseEvent, useState } from "react";
-import { useSWRConfig } from "swr";
 import { useRouter } from "next/navigation";
 
 import EmailSvg from "@/assets/svg/email";
@@ -8,14 +7,18 @@ import EyeSvg from "@/assets/svg/eye";
 import KeySvg from "@/assets/svg/key";
 import UserSvg from "@/assets/svg/user";
 import routes from "@/assets/api/routes";
-import fetcher from "@/assets/api/fetcher";
 
 import Input from "@/component/input/input";
 import Button from "@/component/button/button";
 
 import styles from "./register.module.scss";
+import { getKeyRegister, getProfile } from "@/lib/api/auth";
+import { useAppDispatch } from "@/store/hooks";
+import { setKey } from "@/store/apiKeySlice";
 
 const Register: FC = () => {
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
 
   const [name, setName] = useState("");
@@ -23,41 +26,17 @@ const Register: FC = () => {
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
-
-  const { mutate, cache } = useSWRConfig();
-
-  const handleSubmit = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
+  const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    mutate(
-      routes.register,
-      fetcher(routes.register, {
-        method: "POST",
-        headers: {
-          "X-API-KEY": "",
-          accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password, email, name }),
-      })
-    );
-    if (cache.get(routes.register)?.data.value) {
-      mutate(
-        routes.profile,
-        fetcher(routes.profile, {
-          method: "GET",
-          headers: {
-            "X-API-KEY": `${cache.get(routes.register)?.data.value}`,
-            accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
-      );
-      router.push(`/account/owner/${cache.get(routes.profile)?.data.slug}`);
-    } else setError(cache.get(routes.register)?.data.message);
+    const value = await getKeyRegister({ email, password, name }, setError);
+    console.log(value);
+    console.log(error);
+    if (value) {
+      dispatch(setKey(value));
+      const { slug } = await getProfile(routes.profile, value);
+      router.push(`/account/owner/${slug}`);
+    }
   };
-
   return (
     <div className={styles.main}>
       <div className={styles.container}>

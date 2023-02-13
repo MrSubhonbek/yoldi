@@ -1,59 +1,41 @@
 "use client";
 import { FC, MouseEvent, useState } from "react";
-import { useSWRConfig } from "swr";
 import { useRouter } from "next/navigation";
 
 import Button from "@/component/button/button";
 import Input from "@/component/input/input";
 
+import { useAppDispatch } from "@/store/hooks";
+import { setKey } from "@/store/apiKeySlice";
+
 import EmailSvg from "@/assets/svg/email";
 import EyeSvg from "@/assets/svg/eye";
 import KeySvg from "@/assets/svg/key";
 import routes from "@/assets/api/routes";
-import fetcher from "@/assets/api/fetcher";
+
+import { getKeyLogin, getProfile } from "@/lib/api/auth";
 
 import styles from "./login.module.scss";
 
 const Login: FC = () => {
+  const dispatch = useAppDispatch();
+
   const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
-
-  const { mutate, cache } = useSWRConfig();
-
-  const handleSubmit = (
-    e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
-  ) => {
+  const handleSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    mutate(
-      routes.login,
-      fetcher(routes.login, {
-        method: "POST",
-        headers: {
-          "X-API-KEY": "",
-          accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ password, email }),
-      })
-    );
-    if (cache.get(routes.login)?.data.value) {
-      mutate(
-        routes.profile,
-        fetcher(routes.profile, {
-          method: "GET",
-          headers: {
-            "X-API-KEY": `${cache.get(routes.login)?.data.value}`,
-            accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
-      );
-      router.push(`/account/owner/${cache.get(routes.profile)?.data.slug}`);
-    } else setError(cache.get(routes.login)?.data.message);
+    const value = await getKeyLogin({ email, password }, setError);
+    console.log(value);
+    console.log(error);
+    if (value) {
+      dispatch(setKey(value));
+      const { slug } = await getProfile(routes.profile, value);
+      router.push(`/account/owner/${slug}`);
+    }
   };
 
   return (

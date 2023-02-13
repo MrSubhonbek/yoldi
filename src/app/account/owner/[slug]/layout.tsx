@@ -4,7 +4,7 @@ import useSWR from "swr";
 import Header from "@/shared/header/header";
 
 import routes from "@/assets/api/routes";
-import fetcher from "@/assets/api/fetcher";
+import fetcher from "@/lib/api/fetcher";
 import IUser from "@/assets/types";
 
 export default function Page({

@@ -1,4 +1,8 @@
+"use client";
+import Header from "@/shared/header/header";
+import { store } from "@/store/store";
 import { Inter } from "@next/font/google";
+import { Provider } from "react-redux";
 
 import "./globals.scss";
 
@@ -15,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body>{children}</body>
+      <body>
+        <Header />
+        <Provider store={store}>{children}</Provider>
+      </body>
     </html>
   );
 }

@@ -3,5 +3,6 @@ enum routes {
   register = "https://frontend-test-api.yoldi.agency/api/auth/sign-up",
   user = "https://frontend-test-api.yoldi.agency/api/user/",
   profile = "https://frontend-test-api.yoldi.agency/api/profile",
+  contacts = "https://frontend-test-api.yoldi.agency/api/user",
 }
 export default routes;
