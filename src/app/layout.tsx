@@ -1,8 +1,10 @@
 "use client";
-import Header from "@/shared/header/header";
-import { store } from "@/store/store";
 import { Inter } from "@next/font/google";
 import { Provider } from "react-redux";
+
+import { store } from "@/store/store";
+
+import Header from "@/shared/header/header";
 
 import "./globals.scss";
 

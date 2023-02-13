@@ -1,4 +1,5 @@
 import React from "react";
+
 import Contacts from "./contacts";
 
 import styles from "./home.module.scss";

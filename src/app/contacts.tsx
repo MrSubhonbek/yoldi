@@ -1,9 +1,11 @@
 "use client";
-import routes from "@/assets/api/routes";
-import IUser from "@/assets/types";
-import fetcher from "@/lib/api/fetcher";
 import React, { FC } from "react";
 import useSWR from "swr";
+
+import routes from "@/assets/api/routes";
+import IUser from "@/assets/types";
+
+import fetcher from "@/lib/api/fetcher";
 
 import styles from "./contacts.module.scss";
 

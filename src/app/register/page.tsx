@@ -2,6 +2,11 @@
 import { FC, MouseEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { setKey } from "@/store/apiKeySlice";
+import { useAppDispatch } from "@/store/hooks";
+
+import { getKeyRegister, getProfile } from "@/lib/api/auth";
+
 import EmailSvg from "@/assets/svg/email";
 import EyeSvg from "@/assets/svg/eye";
 import KeySvg from "@/assets/svg/key";
@@ -12,9 +17,6 @@ import Input from "@/component/input/input";
 import Button from "@/component/button/button";
 
 import styles from "./register.module.scss";
-import { getKeyRegister, getProfile } from "@/lib/api/auth";
-import { useAppDispatch } from "@/store/hooks";
-import { setKey } from "@/store/apiKeySlice";
 
 const Register: FC = () => {
   const dispatch = useAppDispatch();

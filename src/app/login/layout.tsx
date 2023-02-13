@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import Footer from "@/shared/footer/footer";
-import Header from "@/shared/header/header";
 
 interface ILoginLayout {
   children: React.ReactNode;
