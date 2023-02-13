@@ -1,5 +1,4 @@
 import React, { FC, MouseEvent } from "react";
-import { useRouter } from "next/router";
 import clsx from "clsx";
 
 import styles from "./button.module.scss";

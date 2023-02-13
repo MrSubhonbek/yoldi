@@ -8,7 +8,6 @@ export default function Page({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header login={!!value} name={name} />
-
       {children}
     </>
   );

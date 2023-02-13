@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { ChangeEvent, FC, ReactNode } from "react";
 
 import styles from "./input.module.scss";

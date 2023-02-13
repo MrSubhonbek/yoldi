@@ -6,7 +6,6 @@ import { useState } from "react";
 import ModalWindow from "./modal";
 
 import fetcher from "@/lib/api/fetcher";
-
 import routes from "@/assets/api/routes";
 import IUser from "@/assets/types";
 
@@ -15,7 +14,7 @@ import LogoutSvg from "./logout";
 
 import styles from "./owner.module.scss";
 
-const page = ({ params }: { params: { slug: string } }) => {
+const OwnerPage = ({ params }: { params: { slug: string } }) => {
   const [showModal, setShowModal] = useState(false);
   const { data: user } = useSWR<IUser>(`${routes.user}${params.slug}`, fetcher);
 
@@ -28,7 +27,7 @@ const page = ({ params }: { params: { slug: string } }) => {
       <div className={styles.wrapper}></div>
       <main className={styles.main}>
         <div className={styles.avatar}>
-          <p>{user?.name?.split("")[0].toUpperCase()}</p>
+          <p>{user.name.split("")[0].toUpperCase()}</p>
         </div>
         <div className={styles.head}>
           <p className={styles.name}>{user.name}</p>
@@ -58,4 +57,4 @@ const page = ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default page;
+export default OwnerPage;

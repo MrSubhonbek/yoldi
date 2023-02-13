@@ -1,4 +1,6 @@
-export default function Head() {
+import { FC } from "react";
+
+const Head: FC = () => {
   return (
     <>
       <title>Yoldi</title>
@@ -7,4 +9,5 @@ export default function Head() {
       <link rel="icon" href="/favicon.ico" />
     </>
   );
-}
+};
+export default Head;

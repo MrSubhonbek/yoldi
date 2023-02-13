@@ -8,9 +8,10 @@ import IUser from "@/assets/types";
 
 import fetcher from "@/lib/api/fetcher";
 
-import styles from "./contacts.module.scss";
 import { useAppDispatch } from "@/store/hooks";
 import { setInfoUser } from "@/store/guestSlices";
+
+import styles from "./contacts.module.scss";
 
 const Contacts: FC = () => {
   const { data, error, isLoading } = useSWR<IUser[]>(routes.contacts, fetcher);

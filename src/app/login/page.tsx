@@ -33,7 +33,6 @@ const Login: FC = () => {
       const { name, slug } = await getProfile(routes.profile, value);
       dispatch(setKey({ name, value, slug }));
       router.push(`/contacts`);
-      //router.push(`/account/owner/${slug}`);
     }
   };
 
