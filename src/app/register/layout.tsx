@@ -1,4 +1,5 @@
 import Footer from "@/shared/footer/footer";
+import Header from "@/shared/header/header";
 
 export default function DashboardLayout({
   children,
@@ -6,9 +7,10 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <>
+      <Header />
       {children}
       <Footer register />
-    </section>
+    </>
   );
 }

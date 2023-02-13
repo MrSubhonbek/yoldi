@@ -1,0 +1,9 @@
+.container {
+  @apply flex h-[712px] max-w-[1280px] flex-col items-center gap-[10px]  bg-white pt-[50px] max-[769px]:px-[20px] max-sm:px-0;
+  .content {
+    @apply flex h-[562px] flex-col items-start gap-[30px] p-0;
+    .title {
+      @apply h-[42px] w-full max-w-[800px] text-3xl font-medium text-black max-sm:w-[335px];
+    }
+  }
+}

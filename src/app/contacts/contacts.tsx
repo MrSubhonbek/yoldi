@@ -17,11 +17,11 @@ const Contacts: FC = () => {
   if (!data) return <div>Empty contacts</div>;
   const contact = data.map(({ name, email }, index) => (
     <div key={index} className={styles.users}>
+      <div className={styles.avatar}>{name.split("")[0].toUpperCase()}</div>
       <div className={styles.wrapper}>
-        <div className={styles.avatar}>{name.split("")[0].toUpperCase()}</div>
         <p className={styles.name}>{name}</p>
+        <p className={styles.email}>{email}</p>
       </div>
-      <p className={styles.email}>{email}</p>
     </div>
   ));
 
